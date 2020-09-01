@@ -25,9 +25,9 @@ const app = express();
 // Step 0: create an OAuth integration from https://developer.ciscospark.com/add-integration.html
 //   - then fill in your Integration properties below
 //
-const clientId = process.env.CLIENT_ID || "C4d2626189e40ffbde5f8d2948650bda5b4261804986bb3a977b079d2af2d7d93";
-const clientSecret = process.env.CLIENT_SECRET || "81772d83ee75a5835d2b19a1c9e95b47bf6618a3a736e361c5324dc18e7183e8";
-const scopes = process.env.SCOPES || "spark:people_read"; // supported scopes are documented at: https://developer.webex.com/add-integration.html, the scopes separator is a space, example: "spark:people_read spark:rooms_read"
+const clientId = process.env.CLIENT_ID || "C1db49de34d30c7c0a33ef3dfca7658b79ac943bb9931f1f416f1ab1556e39472";
+const clientSecret = process.env.CLIENT_SECRET || "a139adb6116bc305237da9eb8157b42bd3ec789b4c13b9f9ecd6bc2e488b8af7";
+const scopes = process.env.SCOPES || "spark:all"; // supported scopes are documented at: https://developer.webex.com/add-integration.html, the scopes separator is a space, example: "spark:people_read spark:rooms_read"
 
 // Compute redirect URI where your integration is waiting for Webex cloud to redirect and send the authorization code
 // unless provided via the REDIRECT_URI variable
@@ -40,7 +40,7 @@ if (!redirectURI) {
    }
    else {
       // defaults to localhost
-      redirectURI = `http://localhost:${port}/oauth`;
+      redirectURI = `https://yusufwebex.herokuapp.com/oauth`;
    }
 }
 debug(`OAuth integration settings:\n   - CLIENT_ID    : ${clientId}\n   - REDIRECT_URI : ${redirectURI}\n   - SCOPES       : ${scopes}`);
